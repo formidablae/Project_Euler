@@ -22,6 +22,7 @@ def arrives_at_89(n):
             return True
         n = sum([int(i) ** 2 for i in str(n)])
 
+
 def count_89_chains(m):
     count = 0
     for i in range(m):
@@ -29,7 +30,9 @@ def count_89_chains(m):
             count += 1
     return count
 
+
 def main():
     print(count_89_chains(10000000))
-    
+
+
 main()

@@ -11,7 +11,7 @@
 # Find the smallest denominator d, having a resilience R(d) < 15499/94744 .
 
 
-from primesieve import *
+from primesieve import primes
 
 
 def main():
@@ -38,4 +38,6 @@ def main():
                 print("\nDone:", count)
                 print("min resilience obtained:", min_resilience)
             count += 1
+
+
 main()

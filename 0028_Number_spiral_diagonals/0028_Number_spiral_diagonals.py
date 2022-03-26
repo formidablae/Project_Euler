@@ -10,6 +10,7 @@
 
 # What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?
 
+
 def spiral_diagonals_iterative(n):
     """
     Returns the sum of the diagonals in a n by n spiral.
@@ -17,7 +18,7 @@ def spiral_diagonals_iterative(n):
     res = 0
     i = 1
     c = 1
-    while i <= n ** 2:
+    while i <= n**2:
         # print("i =", i)
         # print("c =", c)
         # print("res =", res)

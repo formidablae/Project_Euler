@@ -29,23 +29,24 @@ def prime_witten_most_consecutive_prime_sum(primes, primes_set, ceiling):
         max_sum = 0
         for j in range(i, len(primes)):
             max_sum += primes[j]
-            if (max_sum > ceiling):
+            if max_sum > ceiling:
                 break
             if max_sum in primes_set and max_sum > arg_max_sum_primes and j - i > max_length:
                 max_length = j - i
                 arg_max_sum_primes = max_sum
     return arg_max_sum_primes, max_length
 
+
 def main():
     primes = get_primes_smaller_than(1000000)
     primes_set = set(primes)
-    arg_max_sum_primes, max_length = prime_witten_most_consecutive_prime_sum(
-        primes, primes_set, 1000000)
-    print("{} can be written as the sum of the most consecutive primes, with {} consecutive primes".format(
-        arg_max_sum_primes,
-        max_length
-    ))
+    arg_max_sum_primes, max_length = prime_witten_most_consecutive_prime_sum(primes, primes_set, 1000000)
+    print(
+        "{} can be written as the sum of the most consecutive primes, with {} consecutive primes".format(
+            arg_max_sum_primes, max_length
+        )
+    )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

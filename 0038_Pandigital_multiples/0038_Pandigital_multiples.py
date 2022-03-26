@@ -14,15 +14,18 @@
 # What is the largest 1 to 9 pandigital 9-digit number
 # that can be formed as the concatenated product of an integer with (1,2, ... , n) where n > 1?
 
+
 def is_pandigital(num):
     num_str = str(num)
     return len(num_str) == 9 and len(set(num_str)) == 9
 
+
 def concatenated_product(m, n):
-    result = ''
-    for i in range(1, n+1):
+    result = ""
+    for i in range(1, n + 1):
         result += str(i * m)
     return int(result)
+
 
 def main():
     max_nine_digit_pandigital = 0
@@ -33,10 +36,12 @@ def main():
             continue
         nn = 2
         while nn < 10:
-            if nn % 10 == 0 or \
-               len(str(mm * nn)) > 9 or \
-               len(str(mm)) * nn > 9 or \
-               (mm % 2 == 0 and (nn % 5 == 0 or nn > 5)):
+            if (
+                nn % 10 == 0
+                or len(str(mm * nn)) > 9
+                or len(str(mm)) * nn > 9
+                or (mm % 2 == 0 and (nn % 5 == 0 or nn > 5))
+            ):
                 nn += 1
                 continue
             concatenated = concatenated_product(mm, nn)
@@ -52,5 +57,6 @@ def main():
             #       "max_nine_digit_pandigital =", max_nine_digit_pandigital)
         mm += 1
     print(max_nine_digit_pandigital)
+
 
 main()

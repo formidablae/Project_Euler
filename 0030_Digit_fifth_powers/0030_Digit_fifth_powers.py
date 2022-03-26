@@ -10,17 +10,20 @@
 
 # Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.
 
+
 def pth_powers(n, p):
     """
     Returns the sum of the p-th powers of the digits of n.
     """
-    return sum(map(lambda x: x ** p, map(int, str(n))))
+    return sum(map(lambda x: x**p, map(int, str(n))))
+
 
 def max_pth_power_for_digits(d, p):
     """
     Returns the maximum pth powers of a d digits number.
     """
-    return d * 9 ** p
+    return d * 9**p
+
 
 def max_number_greater_than_pth_power_for_digits(p):
     """
@@ -35,6 +38,7 @@ def max_number_greater_than_pth_power_for_digits(p):
         else:
             max_number *= 10
     return max_number
+
 
 def sum_pth_powers(p):
     """

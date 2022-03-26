@@ -15,6 +15,7 @@
 #
 # Find the value of d < 1000 for which 1/d contains the longest recurring cycle in its decimal fraction part.
 
+
 def periodic_cycle(n):
     """
     Find the length of the recurring cycle of 1/n.
@@ -25,6 +26,7 @@ def periodic_cycle(n):
         remainders.append(remainder)
         remainder = (remainder * 10) % n
     return len(remainders) - remainders.index(remainder)
+
 
 print("number =", 3, "periodic cycle =", periodic_cycle(3))
 print("number =", 6, "periodic cycle =", periodic_cycle(6))

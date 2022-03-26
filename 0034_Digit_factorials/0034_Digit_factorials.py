@@ -19,6 +19,7 @@ def get_max_ceiling_number(factorials):
         digits += 1
     return int("9" * digits)
 
+
 def main():
     curious_numbers = []
     factorials = {}
@@ -38,5 +39,6 @@ def main():
     print("Total curious numbers:", len(curious_numbers))
     print("Curious numbers:", curious_numbers)
     print("Sum of curious numbers:", sum(curious_numbers))
+
 
 main()
