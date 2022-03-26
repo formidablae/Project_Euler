@@ -5,8 +5,10 @@
 
 # For which value of p ≤ 1000, is the number of solutions maximised?
 
+
 def perimeter(b, h):
-    return b + h + (b ** 2 + h ** 2) ** 0.5
+    return b + h + (b**2 + h**2) ** 0.5
+
 
 def main():
     count_sol = {}
@@ -27,4 +29,6 @@ def main():
             per = perimeter(a, b)
         a += 1
     print("perimeter, max solutions =", list(filter(lambda x: x[1] == max_sol, count_sol.items()))[0])
+
+
 main()

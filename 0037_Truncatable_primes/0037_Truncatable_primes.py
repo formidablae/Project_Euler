@@ -7,15 +7,17 @@
 
 # NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
 
+
 def is_prime(n):
     if n == 2:
         return True
     if n < 2 or n % 2 == 0:
         return False
-    for i in range(3, int(n ** 0.5) + 1, 2):
+    for i in range(3, int(n**0.5) + 1, 2):
         if n % i == 0:
             return False
     return True
+
 
 def is_truncatable_prime(n):
     if len(str(n)) == 1:
@@ -28,6 +30,7 @@ def is_truncatable_prime(n):
             return False
     return True
 
+
 def main():
     truncatable_primes = []
     n = 11
@@ -36,9 +39,10 @@ def main():
             print("done", n)
         if is_truncatable_prime(n):
             truncatable_primes.append(n)
-        n+=2
+        n += 2
     print("Truncatable primes:", truncatable_primes)
     print("Total truncatable primes:", len(truncatable_primes))
     print("Sum of truncatable primes:", sum(truncatable_primes))
+
 
 main()

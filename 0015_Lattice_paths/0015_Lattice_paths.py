@@ -3,6 +3,7 @@ paths[0] = [1]
 paths[1] = [1, 2, 1]
 paths[2] = [1, 4, 6, 4, 1]
 
+
 def lattice_paths(n):
     if n in paths.keys():
         return paths[n]
@@ -14,5 +15,6 @@ def lattice_paths(n):
         new_path.append(1)
         lower_path = new_path
     return lower_path
+
 
 print(max(lattice_paths(20)))

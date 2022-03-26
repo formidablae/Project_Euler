@@ -25,18 +25,16 @@ def check_has_prime_factors(n, distinct_count, primes):
             return True
     return False
 
+
 def count_total_with_prime_factors(n, distinct_count, primes):
     count = 0
     for i in range(distinct_count):
-        if check_has_prime_factors(
-            n + i,
-            distinct_count,
-            primes
-        ):
+        if check_has_prime_factors(n + i, distinct_count, primes):
             count += 1
         else:
             break
     return count
+
 
 def main():
     it = primesieve.Iterator()
@@ -44,7 +42,7 @@ def main():
     # distinct_count = 2
     # distinct_count = 3
     distinct_count = 4
-    
+
     primes = []
     for i in range(distinct_count):
         primes.append(it.next_prime())
@@ -56,8 +54,9 @@ def main():
         if count_total_with_prime_factors(number, distinct_count, primes) == distinct_count:
             print(number)
             break
-        
+
         number += 1
-    
-if __name__ == '__main__':
+
+
+if __name__ == "__main__":
     main()

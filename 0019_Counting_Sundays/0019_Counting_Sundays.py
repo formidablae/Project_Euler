@@ -8,6 +8,7 @@ from datetime import date
 #
 # How many Sundays fell on the first of the month during the twentieth century(1 Jan 1901 to 31 Dec 2000)?
 
+
 def is_leap_year(year):
     if year % 400 == 0:
         return True
@@ -16,6 +17,7 @@ def is_leap_year(year):
     if year % 4 == 0:
         return True
     return False
+
 
 years = range(1901, 2001)
 months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]

@@ -7,21 +7,27 @@
 
 # Find the next triangle number that is also pentagonal and hexagonal.
 
+
 def is_triangle(T_n):
-    return (1 + 8*T_n)**0.5 % 2 == 1
+    return (1 + 8 * T_n) ** 0.5 % 2 == 1
+
 
 def is_pentagonal(P_n):
-    return (1 + 24*P_n)**0.5 % 6 == 5
+    return (1 + 24 * P_n) ** 0.5 % 6 == 5
+
 
 def is_hexagonal(H_n):
-    return (1 + 8*H_n)**0.5 % 4 == 3
+    return (1 + 8 * H_n) ** 0.5 % 4 == 3
+
 
 def get_n_triangle(T_n):
-    return int((1 + 8*T_n)**0.5 // 2)
+    return int((1 + 8 * T_n) ** 0.5 // 2)
+
 
 def next_triangle(current_triangle):
     current_n = get_n_triangle(current_triangle)
     return int((current_n + 1) * (current_n + 2) // 2)
+
 
 def main():
     number = next_triangle(40755)
@@ -32,5 +38,6 @@ def main():
             break
         number = next_triangle(number)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

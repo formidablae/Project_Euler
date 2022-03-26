@@ -17,7 +17,7 @@ import numpy as np
 
 
 def read_words(filename):
-    return np.genfromtxt(filename, dtype='str', delimiter=',')
+    return np.genfromtxt(filename, dtype="str", delimiter=",")
 
 
 def is_triangle_number(t_n):
@@ -30,7 +30,7 @@ def is_triangle_number(t_n):
 
 
 def word_value(word):
-    word_value = sum([ord(letter) - ord('A') + 1 for letter in word])
+    word_value = sum([ord(letter) - ord("A") + 1 for letter in word])
     # print("word {} has {} value".format(word, word_value))
     return word_value
 
@@ -42,10 +42,10 @@ def is_triangle_word(word):
 
 
 def main():
-    words = read_words('p042_words.txt')
+    words = read_words("p042_words.txt")
     stripped_words = [word.strip('"') for word in words]
     print("{} words are triangle words".format(sum([1 for word in stripped_words if is_triangle_word(word)])))
-    
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

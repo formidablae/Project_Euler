@@ -40,7 +40,7 @@ def infinite_continued_fraction_for_two(nth) -> list:
     """
     Returns list of the first n (numerator, denominator)
     of the square root partial fractions of number 2.
-    
+
     nth = 1, return [(1, 1)]
     nth = 2, return [(1, 1), (3, 2)]
     nth = 3, return [(1, 1), (3, 2), (7, 5)]
@@ -53,11 +53,12 @@ def infinite_continued_fraction_for_two(nth) -> list:
         res.append((n_i, d_i))
     return res
 
+
 def infinite_continued_fraction_for_e(nth) -> list:
     """
     Returns list of the first n (numerator, denominator)
     of the square root partial fractions of number e.
-    
+
     nth = 1, return [(2, 1)]
     nth = 2, return [(2, 1), (3, 2)]
     nth = 3, return [(2, 1), (3, 2), (8, 3)]
@@ -81,14 +82,11 @@ def main():
     fractions_for_e_hundred = infinite_continued_fraction_for_e(100)
     print(fractions_for_two)
     print(fractions_for_e_ten)
-    print(
-        "The 100th convergent of the continued fraction for e:",
-        fractions_for_e_hundred[99]
-    )
+    print("The 100th convergent of the continued fraction for e:", fractions_for_e_hundred[99])
     print(
         "Sum of digits in numerator of the 100th convergent",
         "of the continued fraction for e:",
-        sum(int(i) for i in str(fractions_for_e_hundred[99][0]))
+        sum(int(i) for i in str(fractions_for_e_hundred[99][0])),
     )
 
 

@@ -9,6 +9,7 @@
 
 # d1 * d10 * d100 * d1000 * d10000 * d100000 * d1000000
 
+
 def main():
     number_position = {}
     irrational_decimal_part = ""
@@ -19,17 +20,18 @@ def main():
             number_position[len(irrational_decimal_part) + 1] = int(c)
             irrational_decimal_part += c
             i += 1
-        # print("numb =", numb, "number_position[", str(len(irrational_decimal_part)), "] =", 
+        # print("numb =", numb, "number_position[", str(len(irrational_decimal_part)), "] =",
         #       number_position[len(irrational_decimal_part)])
         numb += 1
     print(
-        number_position[1] * \
-        number_position[10] * \
-        number_position[100] * \
-        number_position[1000] * \
-        number_position[10000] * \
-        number_position[100000] * \
-        number_position[1000000]
+        number_position[1]
+        * number_position[10]
+        * number_position[100]
+        * number_position[1000]
+        * number_position[10000]
+        * number_position[100000]
+        * number_position[1000000]
     )
+
 
 main()

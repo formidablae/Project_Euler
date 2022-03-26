@@ -24,7 +24,7 @@ class BinaryTree:
         self.right_child = None
         self.down_child = None
         self.parent = None
-    
+
     def get_right_child(self):
         return self.right_child
 
@@ -33,7 +33,7 @@ class BinaryTree:
 
     def get_parent(self):
         return self.parent
-    
+
     def set_parent(self, tree):
         self.parent = tree
 
@@ -48,15 +48,15 @@ class BinaryTree:
 
     def set_cost(self, cost):
         self.cost = cost
-    
+
     def insert_right(self, pos, cost):
-        if self.right_child == None:
+        if self.right_child is None:
             self.right_child = BinaryTree(pos, cost)
             self.right_child.parent = self
         else:
             t = BinaryTree(pos, cost)
             t.right_child = self.right_child
-            if self.down_child != None:
+            if self.down_child is not None:
                 t.down_child = self.down_child
                 t.down_child.parent = t
             self.right_child = t
@@ -64,45 +64,44 @@ class BinaryTree:
             t.right_child.parent = t
 
     def insert_down(self, pos, cost):
-        if self.down_child == None:
+        if self.down_child is None:
             self.down_child = BinaryTree(pos, cost)
             self.down_child.parent = self
         else:
             t = BinaryTree(pos, cost)
             t.down_child = self.down_child
-            if self.right_child != None:
+            if self.right_child is not None:
                 t.right_child = self.right_child
                 t.right_child.parent = t
             self.down_child = t
             t.parent = self
             t.down_child.parent = t
-    
+
     def remove_right_child(self):
         self.right_child = None
-    
+
     def remove_down_child(self):
         self.down_child = None
-            
-        
+
     def node_to_string(self):
         return "Pos: " + str(self.position) + " Cost: " + str(self.cost)
 
     def to_string(self, came_from=None):
-        if came_from == None:
+        if came_from is None:
             res = " + " + self.node_to_string() + "\n"
         elif came_from == "Up":
             res = " v " + self.node_to_string() + "\n"
         elif came_from == "Left":
             res = " > " + self.node_to_string() + "\n"
-        if self.down_child != None:
+        if self.down_child is not None:
             res += self.down_child.to_string(came_from="Up")
-        if self.right_child != None:
+        if self.right_child is not None:
             res += self.right_child.to_string(came_from="Left")
         return res
-        
+
 
 def read_matrix(filename):
-    return np.loadtxt(filename, dtype=int, delimiter=',')
+    return np.loadtxt(filename, dtype=int, delimiter=",")
 
 
 def min_path_dp_recursive(matrix):
@@ -117,31 +116,31 @@ def min_path_dp_recursive(matrix):
         for j in range(lm):
             if i > 0 and j > 0:
                 dynamic_programing_matrix[i][j] += min(
-                        dynamic_programing_matrix[i][j-1],
-                        dynamic_programing_matrix[i-1][j]
-                    )
+                    dynamic_programing_matrix[i][j - 1], dynamic_programing_matrix[i - 1][j]
+                )
             elif i > 0:
-                dynamic_programing_matrix[i][j] += dynamic_programing_matrix[i-1][j]
+                dynamic_programing_matrix[i][j] += dynamic_programing_matrix[i - 1][j]
             elif j > 0:
-                dynamic_programing_matrix[i][j] += dynamic_programing_matrix[i][j-1]
+                dynamic_programing_matrix[i][j] += dynamic_programing_matrix[i][j - 1]
     return dynamic_programing_matrix[-1][-1]
 
 
 def main():
     example_matrix = np.array(
         [
-            [131, 673, 234, 103,  18],
-            [201,  96, 342, 965, 150],
+            [131, 673, 234, 103, 18],
+            [201, 96, 342, 965, 150],
             [630, 803, 746, 422, 111],
             [537, 699, 497, 121, 956],
-            [805, 732, 524,  37, 331]
+            [805, 732, 524, 37, 331],
         ]
     )
-    
+
     min_path_sum = min_path_dp_recursive(example_matrix)
     print("Example min_path_sum", min_path_sum)
-    matrix = read_matrix('p081_matrix.txt')
+    matrix = read_matrix("p081_matrix.txt")
     min_path_sum = min_path_dp_recursive(matrix)
     print("p081_matrix min_path_sum", min_path_sum)
+
 
 main()

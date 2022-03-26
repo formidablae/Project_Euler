@@ -9,8 +9,9 @@
 # What 12-digit number do you form by concatenating the three terms in this sequence?
 
 
-import primesieve
 from itertools import permutations
+
+import primesieve
 
 
 def prime_permutations(primes_list, min_digits, max_digits):
@@ -18,15 +19,7 @@ def prime_permutations(primes_list, min_digits, max_digits):
     prime_perms = {}
     for prime in primes_list:
         perms_int = sorted(
-            list(
-                set(
-                    [
-                        int("".join(x))
-                        for x in permutations(str(prime))
-                        if int("".join(x)) in primes_set
-                    ]
-                )
-            )
+            list(set([int("".join(x)) for x in permutations(str(prime)) if int("".join(x)) in primes_set]))
         )
         if len(perms_int) <= 2:
             continue

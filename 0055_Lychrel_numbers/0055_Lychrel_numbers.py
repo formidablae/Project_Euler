@@ -53,6 +53,6 @@ def is_lychrel(n):
 def main():
     lychrel_numbers = [n for n in range(1, 10000) if is_lychrel(n)]
     print(len(lychrel_numbers))
-    
+
 
 main()

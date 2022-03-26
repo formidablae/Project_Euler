@@ -12,6 +12,7 @@
 # If the product of these four fractions is given in its lowest common terms,
 # find the value of the denominator.
 
+
 def is_digit_cancelling_fraction(n, d):
     if n / d >= 1:
         return False
@@ -30,6 +31,7 @@ def is_digit_cancelling_fraction(n, d):
         return True
     return False
 
+
 def all_digit_cancelling_fractions():
     for n in range(10, 100):
         for d in range(n + 1, 100):
@@ -44,6 +46,7 @@ def simplify_fraction(n, d):
             d = d // i
             return simplify_fraction(n, d)
     return n, d
+
 
 digit_cancelling_fractions = all_digit_cancelling_fractions()
 product = (1, 1)

@@ -6,15 +6,17 @@
 
 # How many circular primes are there below one million?
 
+
 def is_prime(n):
     if n == 2:
         return True
     if n < 2 or n % 2 == 0:
         return False
-    for i in range(3, int(n ** 0.5) + 1, 2):
+    for i in range(3, int(n**0.5) + 1, 2):
         if n % i == 0:
             return False
     return True
+
 
 def is_circular_prime(n):
     if len(str(n)) == 1:
@@ -25,6 +27,7 @@ def is_circular_prime(n):
             return False
     return True
 
+
 def main():
     circular_primes = []
     for n in range(2, 1000000):
@@ -32,5 +35,6 @@ def main():
             circular_primes.append(n)
     print("Circular primes:", circular_primes)
     print("Total circular primes:", len(circular_primes))
+
 
 main()

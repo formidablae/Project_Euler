@@ -26,6 +26,7 @@
 # Note: You can assume that all the Roman numerals in the file
 # contain no more than four consecutive identical units.
 
+
 def read_roman_numerals(filename):
     numerals = []
     with open(filename) as f:
@@ -36,7 +37,7 @@ def read_roman_numerals(filename):
 
 def roman_numeral_to_int(numeral):
     # convert roman numeral to integer
-    values = {'M': 1000, 'D': 500, 'C': 100, 'L': 50, 'X': 10, 'V': 5, 'I': 1}
+    values = {"M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1}
     result = 0
     for i in range(0, len(numeral)):
         if i > 0 and values[numeral[i]] > values[numeral[i - 1]]:
@@ -48,22 +49,35 @@ def roman_numeral_to_int(numeral):
 
 def int_to_roman_numeral(integer):
     # convert integer to roman numeral, efficiently
-    values = {1000: 'M', 900: 'CM', 500: 'D', 400: 'CD',
-              100: 'C', 90: 'XC', 50: 'L', 40: 'XL',
-              10: 'X', 9: 'IX', 5: 'V', 4: 'IV', 1: 'I'}
-    result = ''
+    values = {
+        1000: "M",
+        900: "CM",
+        500: "D",
+        400: "CD",
+        100: "C",
+        90: "XC",
+        50: "L",
+        40: "XL",
+        10: "X",
+        9: "IX",
+        5: "V",
+        4: "IV",
+        1: "I",
+    }
+    result = ""
     for i in sorted(values.keys(), reverse=True):
         while integer >= i:
             result += values[i]
             integer -= i
     return result
-    
+
 
 def main():
-    roman_numerals = read_roman_numerals('p089_roman.txt')
+    roman_numerals = read_roman_numerals("p089_roman.txt")
     saved_chars = 0
     for roman_numeral in roman_numerals:
         saved_chars += len(roman_numeral) - len(int_to_roman_numeral(roman_numeral_to_int(roman_numeral)))
     print(saved_chars)
+
 
 main()

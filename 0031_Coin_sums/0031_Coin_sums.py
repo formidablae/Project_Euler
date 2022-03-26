@@ -7,6 +7,7 @@
 # 1×£1 + 1×50p + 2×20p + 1×5p + 1×2p + 3×1p
 # How many different ways can £2 be made using any number of coins?
 
+
 def coin_sums(amount):
     coins = [1, 2, 5, 10, 20, 50, 100, 200]
     ways = [1] + [0] * amount
@@ -14,5 +15,6 @@ def coin_sums(amount):
         for i in range(coin, amount + 1):
             ways[i] += ways[i - coin]
     return ways[amount]
+
 
 print(coin_sums(200))

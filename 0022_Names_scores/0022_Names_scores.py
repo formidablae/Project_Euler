@@ -14,22 +14,24 @@
 
 def read_sorted_names(filename):
     with open(filename) as f:
-        names = f.read().replace('"', "").split(',')
+        names = f.read().replace('"', "").split(",")
     return sorted(names)
+
 
 def name_scores(names):
     result = {}
     for ind, name in enumerate(names):
-    # print(result)
+        # print(result)
         sum_letters = 0
         for letter in name:
             sum_letters += ord(letter) - 64
         result[name] = sum_letters * (ind + 1)
     return result
 
-sorted_names = read_sorted_names('p022_names.txt')
+
+sorted_names = read_sorted_names("p022_names.txt")
 scores = name_scores(sorted_names)
 # print(scores)
 # print(name_scores(['COLIN']))
-print("COLIN score:", scores.get('COLIN'))
+print("COLIN score:", scores.get("COLIN"))
 print("Total:", sum(scores.values()))
